@@ -31,8 +31,8 @@ exports.postAddFavorite = (req, res) => {
   const userEmail = req.userEmail;
 
   const item = {
-    id: req.params.id,
-    name: req.params.name,
+    id: req.body.id,
+    name: req.body.name,
   };
 
   User.findOne({ email: userEmail })

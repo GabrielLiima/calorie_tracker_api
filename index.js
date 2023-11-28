@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const searchRoutes = require("./routes/search");
 const favoritesRoutes = require("./routes/favorites");
+const mealsRoutes = require("./routes/meals");
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use((req, res, next) => {
 
 app.use(searchRoutes);
 app.use(favoritesRoutes);
+app.use(mealsRoutes);
 
 mongoose
   .connect(mongoDbUri)

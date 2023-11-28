@@ -22,6 +22,44 @@ const userSchema = mongoose.Schema({
         }
       }
     ]
+  },
+  meals: {
+    items: [
+      {
+        id: {
+          type: Number,
+          required: true,
+        },
+        name: {
+          type: String,
+          required: true,
+        },
+        imageUrl: {
+          type: String,
+          required: true,
+        },
+        amount: {
+          type: Number,
+          required: true,
+        },
+        calories: {
+          type: Number,
+          required: true,
+        },
+        percentProtein: {
+          type: Number,
+          required: true,
+        },
+        percentCarbs: {
+          type: Number,
+          required: true,
+        },
+        percentFat: {
+          type: Number,
+          required: true,
+        }
+      }
+    ]
   }
 });
 
@@ -40,6 +78,12 @@ userSchema.methods.addFavorite = function(item) {
 userSchema.methods.removeFavorite = function(id) {
   this.favorites.items = this.favorites.items.filter((i) => i.id != id);
 
+  return this.save();
+}
+
+userSchema.methods.addMeal = function(meal) {
+  this.meals.items.push(meal);
+  
   return this.save();
 }
 
