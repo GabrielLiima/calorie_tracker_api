@@ -19,7 +19,7 @@ exports.getDetails = (req, res) => {
 
   axios
     .get(
-      `https://api.spoonacular.com/food/ingredients/${id}/information?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&amount=100`
+      `https://api.spoonacular.com/food/ingredients/${id}/information?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&amount=1`
     )
     .then((response) => {
       res.setHeader("content-type", "application/json");

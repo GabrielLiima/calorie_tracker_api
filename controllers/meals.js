@@ -22,6 +22,7 @@ exports.postAddMeals = (req, res) => {
     percentProtein: req.body.percentProtein,
     percentCarbs: req.body.percentCarbs,
     percentFat: req.body.percentFat,
+    category: req.body.category
   };
 
   User.findOne({ email: userEmail })

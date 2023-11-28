@@ -57,7 +57,11 @@ const userSchema = mongoose.Schema({
         percentFat: {
           type: Number,
           required: true,
-        }
+        },
+	category: {
+	  type: String,
+	  required: true,
+	},
       }
     ]
   }
