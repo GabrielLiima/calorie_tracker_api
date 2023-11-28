@@ -74,6 +74,10 @@ const userSchema = mongoose.Schema({
           type: String,
           required: true,
         },
+        date: {
+          type: Date,
+          required: true,
+        },
       }
     ]
   }
@@ -99,7 +103,7 @@ userSchema.methods.removeFavorite = function(id) {
 
 userSchema.methods.addMeal = function(meal) {
   this.meals.items.push(meal);
-  
+
   return this.save();
 }
 

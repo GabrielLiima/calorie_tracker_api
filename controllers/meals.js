@@ -21,11 +21,12 @@ exports.postAddMeals = (req, res) => {
     calories: req.body.calories,
     protein: req.body.protein,
     carbs: req.body.carbs,
-    fat: req.body.carbs,
+    fat: req.body.fat,
     percentProtein: req.body.percentProtein,
     percentCarbs: req.body.percentCarbs,
     percentFat: req.body.percentFat,
-    category: req.body.category
+    category: req.body.category,
+    date: new Date()
   };
 
   User.findOne({ email: userEmail })
