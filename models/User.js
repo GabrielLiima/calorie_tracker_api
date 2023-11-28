@@ -46,6 +46,18 @@ const userSchema = mongoose.Schema({
           type: Number,
           required: true,
         },
+        protein: {
+          type: Number,
+          required: true,
+        },
+        carbs: {
+          type: Number,
+          required: true,
+        },
+        fat: {
+          type: Number,
+          required: true,
+        },
         percentProtein: {
           type: Number,
           required: true,
@@ -58,10 +70,10 @@ const userSchema = mongoose.Schema({
           type: Number,
           required: true,
         },
-	category: {
-	  type: String,
-	  required: true,
-	},
+        category: {
+          type: String,
+          required: true,
+        },
       }
     ]
   }
