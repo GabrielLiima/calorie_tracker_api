@@ -23,6 +23,22 @@ const userSchema = mongoose.Schema({
       }
     ]
   },
+  dailyCalories: {
+    type: Number,
+    required: true,
+  },
+  dailyProtein: {
+    type: Number,
+    required: true,
+  },
+  dailyCarbs: {
+    type: Number,
+    required: true,
+  },
+  dailyFat: {
+    type: Number,
+    required: true,
+  },
   meals: {
     items: [
       {
@@ -74,10 +90,14 @@ const userSchema = mongoose.Schema({
           type: String,
           required: true,
         },
-        date: {
-          type: Date,
+        day: {
+          type: String,
           required: true,
         },
+        month: {
+          type: String,
+          required: true,
+        }
       }
     ]
   }

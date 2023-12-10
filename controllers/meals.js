@@ -13,6 +13,8 @@ exports.getMeals = (req, res) => {
 exports.postAddMeals = (req, res) => {
   const userEmail = req.userEmail;
 
+  const date = new Date();
+
   const meal = {
     id: req.body.id,
     name: req.body.name,
@@ -26,7 +28,10 @@ exports.postAddMeals = (req, res) => {
     percentCarbs: req.body.percentCarbs,
     percentFat: req.body.percentFat,
     category: req.body.category,
-    date: new Date()
+    day: date.getDate(),
+    month: date.toLocaleString("default", {
+      month: "short",
+    })
   };
 
   User.findOne({ email: userEmail })
