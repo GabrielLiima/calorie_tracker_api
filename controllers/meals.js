@@ -10,6 +10,23 @@ exports.getMeals = (req, res) => {
     .catch((err) => console.log(err));
 };
 
+exports.getDailyQuota = (req, res) => {
+  const userEmail = req.userEmail;
+
+  User.findOne({ email: userEmail })
+    .then((user) => {
+      const quota = {
+        dailyCalories: user.dailyCalories,
+        dailyProtein: user.dailyProtein,
+        dailyCarbs: user.dailyCarbs,
+        dailyFat: user.dailyFat
+      }
+
+      res.json(quota);
+    })
+    .catch((err) => console.log(err));
+};
+
 exports.postAddMeals = (req, res) => {
   const userEmail = req.userEmail;
 
