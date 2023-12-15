@@ -29,11 +29,11 @@ exports.getRecipe = (req, res) => {
 };
 
 exports.getRecipeDetails = (req, res) => {
-  const title = req.params.title;
+  const id = req.params.id;
 
   axios
     .get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&query=${title}&addRecipeNutrition=true`
+      `https://api.spoonacular.com/recipes/${id}/information?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&includeNutrition=true`
     )
     .then((response) => {
       const recipe = {
