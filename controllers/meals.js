@@ -45,6 +45,7 @@ exports.postAddMeals = (req, res) => {
     percentCarbs: req.body.percentCarbs,
     percentFat: req.body.percentFat,
     category: req.body.category,
+    type: req.body.type,
     day: date.getDate(),
     month: date.toLocaleString("default", {
       month: "short",
