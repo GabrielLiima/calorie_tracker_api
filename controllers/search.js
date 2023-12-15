@@ -36,8 +36,22 @@ exports.getRecipeDetails = (req, res) => {
       `https://api.spoonacular.com/recipes/complexSearch?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&query=${title}&addRecipeNutrition=true`
     )
     .then((response) => {
+      const recipe = {
+        id: response.data.id,
+        name: response.data.title,
+        imageUrl: response.data.image,
+        amount: response.data.servings,
+        calories: response.data.nutrition.nutrients[0].amount,
+        protein: response.data.nutrition.nutrients[9].amount,
+        carbs: response.data.nutrition.nutrients[3].amount,
+        fat: response.data.nutrition.nutrients[1].amount,
+        percentProtein: response.data.nutrition.caloricBreakdown.percentProtein,
+        percentCarbs: response.data.nutrition.caloricBreakdown.percentCarbs,
+        percentFat: response.data.nutrition.caloricBreakdown.percentFat,
+      }
+
       res.setHeader("content-type", "application/json");
-      res.json(response.data);
+      res.json(recipe);
     })
     .catch((err) => console.log(err));
 };
@@ -50,8 +64,22 @@ exports.getDetails = (req, res) => {
       `https://api.spoonacular.com/food/ingredients/${id}/information?apiKey=f0f9bb36c7dc469fb3d02d7fe7cfbc26&amount=100&unit=grams`
     )
     .then((response) => {
+      const meal = {
+        id: response.data.id,
+        name: response.data.name,
+        imageUrl: response.data.image,
+        amount: response.data.amount,
+        calories: response.data.nutrition.nutrients[36].amount,
+        protein: response.data.nutrition.nutrients[31].amount,
+        carbs: response.data.nutrition.nutrients[30].amount,
+        fat: response.data.nutrition.nutrients[12].amount,
+        percentProtein: response.data.nutrition.caloricBreakdown.percentProtein,
+        percentCarbs: response.data.nutrition.caloricBreakdown.percentCarbs,
+        percentFat: response.data.nutrition.caloricBreakdown.percentFat,
+      }
+
       res.setHeader("content-type", "application/json");
-      res.json(response.data);
+      res.json(meal);
     })
     .catch((err) => console.log(err));
 };
