@@ -29,11 +29,32 @@ exports.getIsFavorite = (req, res) => {
 
 exports.postAddFavorite = (req, res) => {
   const userEmail = req.userEmail;
+  let item = {};
 
-  const item = {
-    id: req.body.id,
-    name: req.body.name,
-  };
+
+  if(req.body.type == "Foods") {
+    item = {
+      id: req.body.id,
+      name: req.body.name,
+      type: req.body.type,
+    };
+
+  } else {
+    item = {
+      id: req.body.id,
+      name: req.body.name,
+      type: req.body.type,
+      imageUrl: req.body.imageUrl,
+      amount: req.body.amount,
+      calories: req.body.calories,
+      protein: req.body.protein,
+      carbs: req.body.carbs,
+      fat: req.body.fat,
+      percentProtein: req.body.percentProtein,
+      percentCarbs: req.body.percentCarbs,
+      percentFat: req.body.percentFat
+    };
+  }
 
   User.findOne({ email: userEmail })
     .then((user) => {

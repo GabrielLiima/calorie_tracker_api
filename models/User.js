@@ -19,6 +19,37 @@ const userSchema = mongoose.Schema({
         name: {
           type: String,
           required: true
+        },
+        type: {
+          type: String,
+          required: true,
+        },
+        imageUrl: {
+          type: String,
+        },
+        amount: {
+          type: Number,
+        },
+        calories: {
+          type: Number,
+        },
+        protein: {
+          type: Number,
+        },
+        carbs: {
+          type: Number,
+        },
+        fat: {
+          type: Number,
+        },
+        percentProtein: {
+          type: Number,
+        },
+        percentCarbs: {
+          type: Number,
+        },
+        percentFat: {
+          type: Number,
         }
       }
     ]
@@ -87,6 +118,10 @@ const userSchema = mongoose.Schema({
           required: true,
         },
         category: {
+          type: String,
+          required: true,
+        },
+        type: {
           type: String,
           required: true,
         },
